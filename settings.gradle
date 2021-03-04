@@ -1,0 +1,3 @@
+include ':ktspans'
+include ':sample'
+rootProject.name = "KtSpans"

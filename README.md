@@ -11,7 +11,7 @@ Inspired by [kotlinx.html](https://github.com/Kotlin/kotlinx.html), KtSpans is a
 Add dependency to project:
 
 ```groovy
-implementation 'io.github.dokar3:ktspans:1.0.2'
+implementation 'io.github.dokar3:ktspans:1.0.3'
 ```
 
 Create our span like this:

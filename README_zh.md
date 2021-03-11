@@ -11,7 +11,7 @@
 在项目中添加依赖：
 
 ```groovy
-implementation 'io.github.dokar3:ktspans:1.0.2'
+implementation 'io.github.dokar3:ktspans:1.0.3'
 ```
 
 像下面这样创建span：

@@ -67,7 +67,7 @@ class StdLineHeightSpan : LineHeightSpan {
     ) {
         val originHeight = fm.descent - fm.ascent
         // If original height is not positive, do nothing.
-        if (originHeight <= 0) {
+        if (originHeight <= 0 || originHeight == height) {
             return
         }
         val newHeight: Int = if (mMultiple != 1f) {
@@ -77,10 +77,12 @@ class StdLineHeightSpan : LineHeightSpan {
         } else {
             return
         }
+
+        height = newHeight
+
         val ratio = newHeight * 1.0f / originHeight
         fm.descent = Math.round(fm.descent * ratio)
         fm.ascent = fm.descent - newHeight
     }
 
 }
-

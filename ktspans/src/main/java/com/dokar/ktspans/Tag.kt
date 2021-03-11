@@ -11,7 +11,7 @@ open class Tag(val name: String, var root: Root? = null) {
 
     private val spanBuilder = SpannableStringBuilder()
 
-    open fun span(): Spanned {
+    open fun spanned(): Spanned {
         return spanBuilder
     }
 
@@ -19,11 +19,7 @@ open class Tag(val name: String, var root: Root? = null) {
         return spanBuilder
     }
 
-    open operator fun String.unaryPlus() {
-        spanBuilder.append(this)
-    }
-
-    open operator fun Spanned.unaryPlus() {
+    open operator fun CharSequence.unaryPlus() {
         spanBuilder.append(this)
     }
 }

@@ -37,14 +37,10 @@ open class SelfClosingTag(name: String, root: Root?) : Tag(name, root) {
     private val content = SpannableStringBuilder(" ")
 
     @Deprecated("This tag does not support text content.")
-    override operator fun String.unaryPlus() {
+    override operator fun CharSequence.unaryPlus() {
     }
 
-    @Deprecated("This tag does not support text content.")
-    override operator fun Spanned.unaryPlus() {
-    }
-
-    override fun span(): Spanned {
+    override fun spanned(): Spanned {
         return content
     }
 }

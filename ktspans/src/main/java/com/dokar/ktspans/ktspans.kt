@@ -17,7 +17,7 @@ annotation class StyleTagMarker
 inline fun createSpanned(body: RootTag.() -> Unit): Spanned {
     val root = RootTag()
     root.body()
-    return root.span()
+    return root.spanned()
 }
 
 inline fun createStyle(body: StyleSheet.() -> Unit): StyleSheet {
@@ -33,7 +33,7 @@ fun checkRoot(tag: Tag) {
 }
 
 fun Tag.insertTag(tag: Tag, specificSpans: Array<out Any>?, isBlockElement: Boolean = false) {
-    if (tag.span().isEmpty()) {
+    if (tag.spanned().isEmpty()) {
         return
     }
 
@@ -43,9 +43,9 @@ fun Tag.insertTag(tag: Tag, specificSpans: Array<out Any>?, isBlockElement: Bool
         spanBuilder.appendLine()
     }
 
-    spanBuilder.append(tag.span())
+    spanBuilder.append(tag.spanned())
 
-    val start = spanBuilder.length - tag.span().length
+    val start = spanBuilder.length - tag.spanned().length
     val end = spanBuilder.length
     val flags = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 

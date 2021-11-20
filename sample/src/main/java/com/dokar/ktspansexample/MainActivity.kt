@@ -121,6 +121,17 @@ class MainActivity : AppCompatActivity() {
                     +"View custom tags"
                 }
             }
+            br {}
+
+            p {
+                attrs {
+                    fontStyle = Typeface.BOLD
+                    align = Layout.Alignment.ALIGN_CENTER
+                }
+                clickable({ showAbout() }) {
+                    +"Ideas"
+                }
+            }
         }
     }
 
@@ -361,6 +372,47 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            +footer()
+        }
+    }
+
+    private fun showAbout() {
+        textView.text = createSpanned {
+            style {
+                h3 {
+                    color = 0xFF8D07F6.toInt()
+                }
+                quote {
+                    stripeColor = 0x72AAAAAA
+                    stripeWidth = 2.dp
+                    gapWidth = 8.dp
+                }
+                "serif-font" {
+                    fontFamily = Typeface.SERIF
+                }
+            }
+
+            h3 { +"::before" }
+            p {
+                b { +"KtSpans" }
+                +" is inspired by "
+                a("https://github.com/Kotlin/kotlinx.html") {
+                    +"kotlinx.html"
+                }
+            }
+            br {}
+            h3 { +"#now" }
+            p {
+                +"Make more fun with Android spans"
+            }
+            br {}
+            h3 { +"::after" }
+            quote {
+                className = "serif-font"
+                +"\"I never think of the future, it comes soon enough.\"—Albert Einstein"
+            }
+
+            br {}
             +footer()
         }
     }

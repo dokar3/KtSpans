@@ -6,15 +6,16 @@ import com.dokar.ktspansexample.spans.DashedHrSpan
 // extension function for span dsl
 @SpanTagMarker
 inline fun Tag.dashedHr(crossinline body: DashedHr.() -> Unit) {
-    val tag = DashedHr(root)
-    tag.body()
+    val tag = DashedHr(root).also(body)
     // Generate default attributes if it does not exists.
     root!!.defaultStyle.dashedHr {}
     // Apply attributes
     val attrs = (tag.attrs ?: root!!.attrs(tag.name)) as DashedHrAttributes
     val height = attrs.height.value
+    // color is built-in attr in Attributes
     val color = attrs.color
-    // Insert into parent tag
+    // Insert into parent tag, if isBlockElement = true, a new line
+    // will be inserted after tag
     insertTag(tag, arrayOf(DashedHrSpan(height, color)), isBlockElement = true)
 }
 
@@ -30,9 +31,7 @@ inline fun StyleSheet.dashedHr(body: DashedHrAttributes.() -> Unit) {
 // extension function for fullAttrs
 @StyleTagMarker
 inline fun DashedHr.fullAttrs(body: DashedHrAttributes.() -> Unit) {
-    val attrs = DashedHrAttributes()
-    attrs.body()
-    this.attrs = attrs
+    this.attrs = DashedHrAttributes().also(body)
 }
 
 // custom attributes

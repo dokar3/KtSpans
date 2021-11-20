@@ -14,7 +14,7 @@
 implementation 'io.github.dokar3:ktspans:1.0.3'
 ```
 
-像下面这样创建span：
+创建 Spanned：
 
 ```kotlin
 textView.text = createSpanned {
@@ -22,7 +22,12 @@ textView.text = createSpanned {
         h3 {
             color = 0xFF8D07F6.toInt()
         }
-        "serif" {
+        quote {
+            stripeColor = 0x72AAAAAA
+            stripeWidth = 2.dp
+            gapWidth = 8.dp
+        }
+        "serif-font" {
             fontFamily = Typeface.SERIF
         }
     }
@@ -38,18 +43,18 @@ textView.text = createSpanned {
     br {}
     h3 { +"#now" }
     p {
-        +"Make spans on Android easy to use"
+        +"Make more fun with Android spans"
     }
     br {}
     h3 { +"::after" }
-    p {
-        className = "serif"
-        +"More possibilities is comming"
+    quote {
+        className = "serif-font"
+        +"\"I never think of the future, it comes soon enough.\"—Albert Einstein"
     }
 }
 ```
 
-显示将会是这样的：
+结果：
 
 ![](./arts/screenshot_01_clipped.png)
 
@@ -218,9 +223,7 @@ class DashedHr(root: IRoot?) : SelfClosingTag(NAME, root) {
 ```kotlin
 @StyleTagMarker
 inline fun DashedHr.fullAttrs(body: DashedHrAttributes.() -> Unit) {
-    val attrs = DashedHrAttributes()
-    attrs.body()
-    this.attrs = attrs
+    this.attrs = DashedHrAttributes().also(body)
 }
 ```
 
@@ -229,8 +232,7 @@ inline fun DashedHr.fullAttrs(body: DashedHrAttributes.() -> Unit) {
 ```kotlin
 @SpanTagMarker
 inline fun Tag.dashedHr(crossinline body: DashedHr.() -> Unit) {
-    val tag = DashedHr(root)
-    tag.body()
+    val tag = DashedHr(root).also(body)
     root!!.defaultStyle.dashedHr {}
     val attrs = (tag.attrs ?: root!!.attrs(tag.name)) as DashedHrAttributes
     val height = attrs.height.value

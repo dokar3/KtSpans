@@ -248,7 +248,7 @@ inline fun Tag.span(crossinline body: Tag.() -> Unit) {
     checkRoot(this)
     val tag = Tag(SPAN, root)
     tag.body()
-    root!!.defaultStyle.p {}
+    root!!.defaultStyle.span {}
     insertTag(tag, null)
 }
 

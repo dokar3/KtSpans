@@ -4,6 +4,8 @@
 
 # KtSpans
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dokar3/ktspans/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dokar3/ktspans)
+
 启发自[kotlinx.html](https://github.com/Kotlin/kotlinx.html), KtSpans是一个提供了类似 **html** 和 **css** 的DSL，用于在Android上创建span的开源库。
 
 # 如何使用?
@@ -11,7 +13,7 @@
 在项目中添加依赖：
 
 ```groovy
-implementation 'io.github.dokar3:ktspans:1.0.3'
+implementation 'io.github.dokar3:ktspans:latest_version'
 ```
 
 创建 Spanned：

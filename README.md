@@ -4,6 +4,8 @@
 
 # KtSpans
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.dokar3/ktspans/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.dokar3/ktspans)
+
 Inspired by [kotlinx.html](https://github.com/Kotlin/kotlinx.html), KtSpans is a library provides **html** & **css** like DSL to write spans on Android.
 
 # How?
@@ -11,7 +13,7 @@ Inspired by [kotlinx.html](https://github.com/Kotlin/kotlinx.html), KtSpans is a
 Add dependency to project:
 
 ```groovy
-implementation 'io.github.dokar3:ktspans:1.0.3'
+implementation 'io.github.dokar3:ktspans:latest_version'
 ```
 
 Create spanned:
